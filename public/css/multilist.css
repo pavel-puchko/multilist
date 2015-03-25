@@ -1,0 +1,80 @@
+#assigned-lists .list-group-item {
+}
+#personal-lists .list-group-item {
+}
+.modal {
+    background-color: #ffffff;
+    top: 0;
+    bottom: 0;
+}
+.list-delete {
+    margin-left: 20px;
+}
+
+.list-header {
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.hello-info {
+    color:red;
+    display: inline-block;
+
+}
+.panel-heading {
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.logout {
+    cursor: pointer;
+}
+.logout a {
+    color: yellow!important;
+}
+.check-task, .check-subtask{
+    float: left;
+    margin-right: 5px;
+}
+.task-header {
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.subtask-header {
+    overflow: hidden;
+    text-overflow: ellipsis   
+}
+.task-delete {
+    margin-left: 20px;
+}
+.task-item .check-task:checked ~ .task-header{
+    text-decoration: line-through;
+}
+.subtask-item .check-subtask:checked ~ .subtask-header{
+    text-decoration: line-through;
+}
+#createTask, #createSubTask{
+    margin-top: 10px;
+    width: 100%;
+}
+#createList {
+    width: 100%;
+}
+#taskDescription {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+.active {
+    background-color: #FFD540;
+}
+ul>li{
+    cursor: pointer;
+}
+ul>li:hover {
+    background-color: #FFE073;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}

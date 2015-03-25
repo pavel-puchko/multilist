@@ -1,0 +1,51 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="badge info">{{myDetails.lists.length}}</span>
+        <strong>Lists </strong>
+    </div>
+    <div class="panel-body">
+        <h4>Personal lists:</h4>
+        <ul id="personal-lists" class="list-group" >
+          <li id="{{list._id}}"class="list-group-item" ng-repeat="list in myDetails.lists" ng-if="list.users.length == '1'">
+            <span class="badge list-delete info" ng-click="deleteList(list._id)">Del</span>
+            <div class="list-header" ng-click="changeCurrentList(list._id)">{{list.listHeader}}</div>
+          </li>
+        </ul>
+        <h4>Assigned lists:</h4>
+        <ul id="assigned-lists" class="list-group">
+          <li id="{{list._id}}"class="list-group-item" ng-repeat="list in myDetails.lists" ng-if="list.users.length > '1'">
+            <span class="badge list-delete info" ng-click="deleteList(list._id)">Del</span>
+            <div class="list-header"ng-click="changeCurrentList(list._id)">{{list.listHeader}}</div>
+          </li>
+        </ul>
+    </div>
+    <div id="myModal" class="modal fade col-lg-4 center-block" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Create new list</h3>
+      </div>
+      <div class="modal-body">
+        <input id="newListHeader" ng-model="newList.listHeader" type="text" class="form-control" placeholder="Enter the name of list">
+      </div>
+      <div class="modal-body">
+        <h4>Assign to:</h4>
+        <form novalidate class="form-inline" name="users">
+            <input id="newListUser" ng-model="newList.listUser" type="email" class="form-control" name="user" placeholder="Enter user email">
+            <button class="btn btn-info" type="submit" id="addListUser" ng-click="addListUser(newList.listUser)" ng-disabled="users.user.$pristine || users.user.$invalid">Add user</button>
+        </form>
+        <h4>Users</h4>
+        <ul id="users" class="list-group" ng-repeat="user in newList.users">
+          <li class="list-group-item user-name" ng-click="deleteUser(user)">
+            {{user}}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button  ng-click="createList()" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+    <div class="panel-footer text-center add-list" id="newList">
+        <button id="createList" type="button" class="btn btn-primary" data-toggle="modal" data-keyboard="true" data-target="#myModal">New List</button>
+    </div>
+</div>

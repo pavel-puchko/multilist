@@ -1,0 +1,29 @@
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <strong>Info ({{currentTask.itemHeader}})</strong>
+    </div>
+    <div class="panel-body">
+		<div class="form-group">
+			<label> Expiration Date: </label>
+    		<input id="taskExpDate" type="date"  value="{{currentTask.expirationDate}}">
+    	</div>
+    	<div class="form-group">
+        <label>Description</label>
+        	<textarea id="taskDescription" ng-maxlength="10000"ng-model="currentTask.description" ng-model-options="{ updateOn: 'blur' }"></textarea>
+    	</div>
+        <p ng-if="currentTask.subitems.length !== 0"> Subtasks: </p>
+        <ul class="list-group">
+          <li  id="{{item._id}}" class="list-group-item subtask-item" ng-repeat="item in currentTask.subitems | orderBy:'done'">
+            <input type="checkbox" class="check-subtask" ng-click="changeSubTaskDone(item._id)" checked ng-if="item.done === true">
+            <input type="checkbox" class="check-subtask" ng-click="changeSubTaskDone(item._id)" ng-if="item.done === false">
+            <span class="badge subtask-delete" ng-click="deleteSubTask(item._id)">Del</span>
+            <div class="subtask-header">{{item.subItemHeader}}</div>
+          </li>
+        </ul>
+
+    </div>
+    <div class="panel-footer text-center add-task" id="newSubTask">
+    	<input id="newSubTaskHeader" ng-model="newSubTaskHeader" type="text" class="form-control" placeholder="Enter the name of subtask">
+       	<button type="button" class="btn btn-danger" id="createSubTask" ng-click="createSubTask()">New SubTask</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <span class="badge info">{{currentList.items.length}}</span>
+        <strong>Tasks</strong>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+          <li id="{{item._id}}"class="list-group-item task-item" ng-repeat="item in currentList.items | orderBy:'done'">
+            <input type="checkbox" class="check-task" ng-click="changeTaskDone(item._id)" checked ng-if="item.done === true">
+            <input type="checkbox" class="check-task" ng-click="changeTaskDone(item._id)" ng-if="item.done === false">
+            <span class="badge task-delete" ng-click="deleteTask(item._id)">Del</span>
+            <div class="task-header" ng-click="showMoreInfo(item._id)">{{item.itemHeader}}</div>
+          </li>
+        </ul>
+    </div>
+    <div class="panel-footer text-center add-task" id="newTask">
+        <input id="newTaskHeader" ng-model="newTaskHeader" type="text" class="form-control" placeholder="Enter the name of task">
+        <button type="button" class="btn btn-info" id="createTask" ng-click="createTask()">New Task</button>
+    </div>
+</div>

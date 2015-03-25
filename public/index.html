@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Epam project Multilist">
+    <meta name="author" content="Pavel Puchko">
+
+    <title>Multilist</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/loading-bar.css">
+    <link rel="stylesheet" href="/css/multilist.css">
+
+
+</head>
+
+<body ng-app="angularRestfulAuth">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="HomeCtrl">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MultiTodo</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ng-href="#/">About</a></li>
+                    <li data-ng-show="token"><a ng-href="#/me">Me</a></li>
+                    <li data-ng-hide="token"><a ng-href="#/signin">Signin</a></li>
+                    <li data-ng-hide="token"><a ng-href="#/signup">Signup</a></li>
+                    <li data-ng-show="token" class="logout"><a ng-click="logout()">Logout from {{myUsername}}</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <div class="container" ng-view="">
+
+    </div> <!-- /container -->
+
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/bootstrap.min.js"></script>
+<script src="/lib/angular.min.js"></script>
+<script src="/lib/angular-route.min.js"></script>
+<script src="/lib/loading-bar.js"></script>
+<script src="/scripts/app.js"></script>
+<script src="/scripts/controllers.js"></script>
+<script src="/scripts/services.js"></script>
+<script src="/scripts/directives.js"></script>
+
+
+</body>
+</html>
